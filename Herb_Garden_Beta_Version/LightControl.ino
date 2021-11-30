@@ -2,11 +2,11 @@ void LightONorOff(){
 EndTime= (LightStartTime+LC[LightCycle]);if (EndTime > 23){EndTime=EndTime-24;}
 
 
-if (EndTime > LightStartTime) {if (EndTime-Hour >0 ) {LightsOn();}
+if (EndTime > LightStartTime) {if (EndTime-Hour >0 && Hour >= LightStartTime) {LightsOn();} // change make 30/11/21
 else {LightsOff();}                               } 
 
                               
-if (EndTime < LightStartTime) {if ((24+EndTime)-Hour > 0) {LightsOn();}
+if (EndTime < LightStartTime) {if ((EndTime)-Hour > 0 || Hour >= LightStartTime) {LightsOn();}
 else {LightsOff();}                              } 
 
 }
